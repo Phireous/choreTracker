@@ -5,7 +5,7 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 
 // Require Schemas
-var Article = require("./model");
+var Article = require("./model/Chores");
 
 // Create Instance of Express
 var app = express();
@@ -32,7 +32,7 @@ app.use(express.static("client/build"));
 
 // MongoDB Configuration configuration
 // mongoose.connect("mongodb://admin:reactrocks@ds023593.mlab.com:23593/heroku_pg676kmk");
-mongoose.connect("mongodb://localhost:27017/chorePoster");
+mongoose.connect("mongodb://localhost/chorePoster");
 var db = mongoose.connection;
 
 db.on("error", function(err) {
@@ -70,6 +70,11 @@ app.post("/api/saved", function(req, res) {
     }
   });
 });
+
+// app.update("/api/saved", function(req, res) {
+//   var id = req.param.id;
+//   Article.find({_id: id})
+// })
 
 // Route to delete an article from saved list
 app.delete("/api/saved/", function(req, res) {
