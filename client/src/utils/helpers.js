@@ -27,10 +27,18 @@ const helpers = {
       });
   },
   // Update post
-  updateSaved: function() {
-    return axios.patch("/api/saved", {
-      "inProgress": true
+  accept: function(item) {
+
+    return axios.post("/accept/" + item)
+    .then(function(results) {
+      console.log("axios results", results);
+      return results;
     })
+  },
+  // Update post
+  reject: function(item) {
+      
+    return axios.post("/reject/" + item)
     .then(function(results) {
       console.log("axios results", results);
       return results;

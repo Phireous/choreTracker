@@ -71,10 +71,47 @@ app.post("/api/saved", function(req, res) {
   });
 });
 
-// app.update("/api/saved", function(req, res) {
-//   var id = req.param.id;
-//   Article.find({_id: id})
-// })
+app.post("/accept/:id", function(req, res) {
+  console.log(req.params.id)
+  Article.update({
+    "_id": req.params.id
+  }, {
+    $set: {
+      "inProgress": true
+    }
+  }, function(err, doc) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    }
+    else {
+      console.log(doc);
+      res.send(doc);
+    }
+  }
+)
+})
+
+app.post("/reject/:id", function(req, res) {
+  console.log(req.params.id)
+  Article.update({
+    "_id": req.params.id
+  }, {
+    $set: {
+      "inProgress": false
+    }
+  }, function(err, doc) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    }
+    else {
+      console.log(doc);
+      res.send(doc);
+    }
+  }
+)
+})
 
 // Route to delete an article from saved list
 app.delete("/api/saved/", function(req, res) {
