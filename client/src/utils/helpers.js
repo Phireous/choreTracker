@@ -9,6 +9,16 @@ const helpers = {
 
   
   // This will return any saved articles from our database
+
+  saveUser: function(username, password) {
+    var newUser = { username: username, password: password };
+    console.log('saveUser', username)
+    return axios.post("/api/users", newUser)
+      .then(function(response) {
+        console.log("New User Saved", response.data._id);
+          return response.data._id;
+      });
+  },
   getSaved: function() {
     return axios.get("/api/saved")
       .then(function(results) {
