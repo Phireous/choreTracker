@@ -3,9 +3,10 @@ var express = require("express");
 var bodyParser = require("body-parser");
 // var logger = require("morgan");
 var mongoose = require("mongoose");
-
+var flash = require("connect-flash");
 // Require Schemas
 var Article = require("./model/Chores");
+var UserRoute = require("../routes/userRoute");
 
 // Create Instance of Express
 var app = express();
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(flash());
 
 // Enable CORS so that browsers don't block requests.
 app.use((req, res, next) => {
@@ -27,7 +29,7 @@ app.use((req, res, next) => {
 });
 // Serve files created by create-react-app.
 app.use(express.static("client/build"));
-
+app.use(UserRoute);
 // -------------------------------------------------
 
 // MongoDB Configuration configuration

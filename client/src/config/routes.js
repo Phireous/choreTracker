@@ -14,6 +14,7 @@ import Main from "../components/Main";
 import Search from "../components/Search";
 import Post from "../components/Post";
 import Register from "../components/Register";
+import Login from "../components/Login";
 
 // Export the Routes
 export default (
@@ -25,6 +26,7 @@ export default (
       <Route path="Search" component={Search} />
       <Route path="Post" component={Post} />
       <Route path="Register" component={Register} />
+      Route path="Login" component={Login} />
 
       {/* If user selects any other path... we get the Home Route */}
       <IndexRoute component={Search} />
