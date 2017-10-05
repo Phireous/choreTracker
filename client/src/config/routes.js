@@ -13,6 +13,7 @@ import { Route, IndexRoute, Router, browserHistory } from "react-router";
 import Main from "../components/Main";
 import Search from "../components/Search";
 import Post from "../components/Post";
+import Register from "../components/Register";
 
 // Export the Routes
 export default (
@@ -23,6 +24,7 @@ export default (
       {/* If user selects Search or Saved show the appropriate component */}
       <Route path="Search" component={Search} />
       <Route path="Post" component={Post} />
+      <Route path="Register" component={Register} />
 
       {/* If user selects any other path... we get the Home Route */}
       <IndexRoute component={Search} />

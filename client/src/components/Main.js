@@ -32,7 +32,7 @@ class Main extends Component {
           </ul>
           
           <ul className="nav navbar-nav navbar-right">
-              <button type="button" className="btn btn-default navbar-btn">Sign out</button>
+              <button type="button" className="btn btn-default navbar-btn">Sign Up</button>
           </ul>
         </div>
       </div>
