@@ -7,8 +7,21 @@ var APIKey = "9b3adf57854f4a19b7b5782cdd6e427a";
 // Helper Functions
 const helpers = {
 
-  
   // This will return any saved articles from our database
+
+  saveUser: function(username, password) {
+    var newUser = { username: username, password: password };
+
+    return axios.post("/api/users", newUser)
+      .then(function(response) {
+        console.log("New User Saved", response.data._id);
+          return response.data._id;
+      });
+  },
+  findUser: function(username, password) {
+    var user = { username: username, password: password };
+    return axios.get("/api/login", user)
+  },
   getSaved: function() {
     return axios.get("/api/saved")
       .then(function(results) {
@@ -27,10 +40,18 @@ const helpers = {
       });
   },
   // Update post
-  updateSaved: function() {
-    return axios.patch("/api/saved", {
-      "inProgress": true
+  accept: function(item) {
+
+    return axios.post("/accept/" + item)
+    .then(function(results) {
+      console.log("axios results", results);
+      return results;
     })
+  },
+  // Update post
+  reject: function(item) {
+      
+    return axios.post("/reject/" + item)
     .then(function(results) {
       console.log("axios results", results);
       return results;

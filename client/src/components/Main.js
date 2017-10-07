@@ -32,7 +32,8 @@ class Main extends Component {
           </ul>
           
           <ul className="nav navbar-nav navbar-right">
-              <button type="button" className="btn btn-default navbar-btn">Sign out</button>
+              <Link to="/Register"><button type="button" className="btn btn-default navbar-btn">Sign Up</button></Link>
+              <Link to="/Login"><button type="button" className="btn btn-default navbar-btn">Login</button></Link>
           </ul>
         </div>
       </div>
