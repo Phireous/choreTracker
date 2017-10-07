@@ -21,8 +21,9 @@ handleSubmit = (event) => {
   helpers.saveUser({
     username: this.state.username,
     password: this.state.password
-  }).then(function() {
-    console.log(this.state.username);
+  }).then((resp) => {
+
+    console.log(this.state);
     console.log("Account Saved");
   })
 
