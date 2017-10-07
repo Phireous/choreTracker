@@ -5,7 +5,6 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var flash = require("connect-flash");
 // Require Schemas
-var Article = require("./model/Chores");
 var routes = require("../routes");
 
 // Create Instance of Express
@@ -46,59 +45,7 @@ db.once("open", function() {
 });
 
 // -------------------------------------------------
-// Route to get all saved articles
-app.get("/api/saved", function(req, res) {
-  Article.find({})
-    .exec(function(err, doc) {
-      if (err) {
-        console.log(err);
-      }
-      else {
-        res.send(doc);
-      }
-    });
-});
 
-// Route to add an article to saved list
-app.post("/api/saved", function(req, res) {
-  var newArticle = new Article(req.body);
-  console.log(req.body);
-  newArticle.save(function(err, doc) {
-    if (err) {
-      console.log(err);
-    }
-    else {
-      res.send(doc);
-    }
-  });
-});
-
-// app.update("/api/saved", function(req, res) {
-//   var id = req.param.id;
-//   Article.find({_id: id})
-// })
-
-// Route to delete an article from saved list
-app.delete("/api/saved/", function(req, res) {
-  var url = req.param("url");
-  Article.find({ url: url }).remove().exec(function(err) {
-    if (err) {
-      console.log(err);
-    }
-    else {
-      res.send("Deleted");
-    }
-  });
-});
-
-// Any non API GET routes will be directed to our React App and handled by React Router
-app.get("*", function(req, res) {
-  if ( process.env.NODE_ENV === 'production' ) {
-    res.sendFile(__dirname + "/client/build/index.html");
-  } else {
-    res.sendFile(__dirname + "/client/public/index.html");
-  }
-});
 
 // -------------------------------------------------
 app.listen(PORT, function() {

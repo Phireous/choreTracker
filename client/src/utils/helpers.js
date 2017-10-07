@@ -7,17 +7,20 @@ var APIKey = "9b3adf57854f4a19b7b5782cdd6e427a";
 // Helper Functions
 const helpers = {
 
-  // var port = "http://localhost:4000";
   // This will return any saved articles from our database
 
   saveUser: function(username, password) {
     var newUser = { username: username, password: password };
-    // console.log('/api/users', username)
+
     return axios.post("/api/users", newUser)
       .then(function(response) {
         console.log("New User Saved", response.data._id);
           return response.data._id;
       });
+  },
+  findUser: function(username, password) {
+    var user = { username: username, password: password };
+    return axios.get("/api/login", user)
   },
   getSaved: function() {
     return axios.get("/api/saved")
