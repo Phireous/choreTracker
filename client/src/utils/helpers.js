@@ -7,12 +7,12 @@ var APIKey = "9b3adf57854f4a19b7b5782cdd6e427a";
 // Helper Functions
 const helpers = {
 
-  
+  // var port = "http://localhost:4000";
   // This will return any saved articles from our database
 
   saveUser: function(username, password) {
     var newUser = { username: username, password: password };
-    console.log('saveUser', username)
+    // console.log('/api/users', username)
     return axios.post("/api/users", newUser)
       .then(function(response) {
         console.log("New User Saved", response.data._id);

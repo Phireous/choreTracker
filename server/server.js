@@ -6,7 +6,7 @@ var mongoose = require("mongoose");
 var flash = require("connect-flash");
 // Require Schemas
 var Article = require("./model/Chores");
-var UserRoute = require("../routes/userRoute");
+var routes = require("../routes");
 
 // Create Instance of Express
 var app = express();
@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 });
 // Serve files created by create-react-app.
 app.use(express.static("client/build"));
-app.use(UserRoute);
+app.use(routes);
 // -------------------------------------------------
 
 // MongoDB Configuration configuration

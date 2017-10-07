@@ -26,7 +26,7 @@ export default (
       <Route path="Search" component={Search} />
       <Route path="Post" component={Post} />
       <Route path="Register" component={Register} />
-      Route path="Login" component={Login} />
+      <Route path="Login" component={Login} />
 
       {/* If user selects any other path... we get the Home Route */}
       <IndexRoute component={Search} />

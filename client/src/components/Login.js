@@ -4,7 +4,7 @@ class Form extends Component {
  render () {
    return (
      <form className="Form">
-       <h2>Sign up</h2>
+       <h2>Login</h2>
        <div className="form-group">
          <label htmlFor="username">Username</label>
          <input type="text" className="form-control"
