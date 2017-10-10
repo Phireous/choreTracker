@@ -27,12 +27,12 @@ class Main extends Component {
         
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav">
-            <Link to="/Search"><button className="btn btn-primary btn-md navbar-btn">Pick up a chore</button></Link>   
+            <Link to="/Search"><button className="btn btn-success btn-md navbar-btn">Pick up a chore</button></Link>   
             <Link to="/Post"><button className="btn btn-danger btn-md navbar-btn">Post a chore</button></Link>
           </ul>
           
           <ul className="nav navbar-nav navbar-right">
-              <Link to="/Register"><button type="button" className="btn btn-default navbar-btn">Sign Up</button></Link>
+              <Link to="/Register"><button type="button" className="btn btn-warning navbar-btn">Sign Up</button></Link>
               <Link to="/Login"><button type="button" className="btn btn-default navbar-btn">Login</button></Link>
           </ul>
         </div>

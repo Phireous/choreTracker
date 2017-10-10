@@ -27,10 +27,10 @@ const helpers = {
       });
   },
   // This will save new articles to our database
-  postSaved: function(title, date, url) {
-    var newArticle = { title: title, date: date, url: url };
-    console.log('postSaved', title)
-    return axios.post("/api/chores", newArticle)
+  postSaved: function(data) {
+    var newChore = data;
+    console.log('postSaved', newChore)
+    return axios.post("/api/chores", newChore)
       .then(function(response) {
         console.log("axios results", response.data._id);
         return response.data._id;
