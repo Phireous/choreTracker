@@ -33,7 +33,7 @@ class Main extends Component {
             <Link to="/Post"><button className="btn btn-danger btn-md navbar-btn">Post a chore</button></Link>
           </ul>
           <ul className="nav navbar-nav navbar-right">
-              <Link to="/logout"><button type="button" className="btn btn-default navbar-btn">Logout</button></Link>
+              <Link to="/Logout"><button type="button" className="btn btn-default navbar-btn">Logout</button></Link>
           </ul>
           </div>
            ) : (
