@@ -67,8 +67,6 @@ class Post extends Component {
                 />
 
               </div>
-
-              {/* Here we create the onClick event that triggers the HandleSubmit */}
               <div className="pull-right">
                 <button
                   type="submit"

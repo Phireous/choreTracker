@@ -56,14 +56,14 @@ class Search extends Component {
         return (
           <div key={index}>
             <div className="col-lg-4">
-              <div className="panel panel-primary">
+              <div className="panel panel-success">
                 <div className="panel-heading">
                   <h3 className="panel-title">{chore.title}</h3>
                 </div>
                 <div className="panel-body">
                   <p>{chore.description}</p>
                   <p>${chore.price}</p>
-                  <button className="btn btn-primary" onClick={() => this.acceptChore(chore._id)}>I'll do it!</button>
+                  <button className="btn btn-success" onClick={() => this.acceptChore(chore._id)}>I'll do it!</button>
                 </div>
 
               </div>
@@ -112,7 +112,7 @@ class Search extends Component {
       <div className="main-container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="panel panel-primary">
+            <div className="panel panel-success">
               <div className="panel-heading">
                 <h1 className="panel-title">
                   <strong>
