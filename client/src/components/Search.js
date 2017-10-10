@@ -55,7 +55,7 @@ class Search extends Component {
       if (chore.inProgress === false) {
         return (
           <div key={index}>
-            <div className="col-lg-12">
+            <div className="col-lg-4">
               <div className="panel panel-primary">
                 <div className="panel-heading">
                   <h3 className="panel-title">{chore.title}</h3>
@@ -79,7 +79,7 @@ class Search extends Component {
       if (chore.inProgress === true && chore.completed === false) {
         return (
           <div key={index}>
-            <div className="col-lg-12">
+            <div className="col-lg-4">
               <div className="panel panel-primary">
                 <div className="panel-heading">
                   <h3 className="panel-title">{chore.title}</h3>
