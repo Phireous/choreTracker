@@ -65,7 +65,7 @@ this.state = {
        </div>
        <button type="submit" 
         className="btn btn-primary"
-        onSubmit={this.handleSubmit}>
+        onSubmit={this.changeUser}>
           Login
        </button>
      </form>
