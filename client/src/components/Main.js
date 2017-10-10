@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 // Including the Link component from React Router to navigate within our application without full page reloads
 // https://github.com/ReactTraining/react-router/blob/master/docs/API.md#link
 import { Link } from "react-router";
+import Auth from "../modules/Auth";
 
 // Create the Main component
 class Main extends Component {
@@ -31,10 +32,16 @@ class Main extends Component {
             <Link to="/Post"><button className="btn btn-danger btn-md navbar-btn">Post a chore</button></Link>
           </ul>
           
+          {Auth.isUserAuthenticated() ? (
+          <ul className="nav navbar-nav navbar-right">
+              <Link to="/logout"><button type="button" className="btn btn-default navbar-btn">Logout</button></Link>
+          </ul>
+           ) : (
           <ul className="nav navbar-nav navbar-right">
               <Link to="/Register"><button type="button" className="btn btn-warning navbar-btn">Sign Up</button></Link>
               <Link to="/Login"><button type="button" className="btn btn-default navbar-btn">Login</button></Link>
           </ul>
+          )}
         </div>
       </div>
     </nav>
