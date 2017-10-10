@@ -1,9 +1,6 @@
 // Include the Axios library for HTTP requests
 import axios from "axios";
 
-// NYT API Key (Replace with your own API Key)
-var APIKey = "9b3adf57854f4a19b7b5782cdd6e427a";
-
 // Helper Functions
 const helpers = {
 
@@ -23,7 +20,7 @@ const helpers = {
     return axios.get("/api/login", user)
   },
   getSaved: function() {
-    return axios.get("/api/saved")
+    return axios.get("/api/chores")
       .then(function(results) {
         console.log("axios results", results);
         return results;
@@ -33,7 +30,7 @@ const helpers = {
   postSaved: function(title, date, url) {
     var newArticle = { title: title, date: date, url: url };
     console.log('postSaved', title)
-    return axios.post("/api/saved", newArticle)
+    return axios.post("/api/chores", newArticle)
       .then(function(response) {
         console.log("axios results", response.data._id);
         return response.data._id;
@@ -42,7 +39,7 @@ const helpers = {
   // Update post
   accept: function(item) {
 
-    return axios.post("/accept/" + item)
+    return axios.post("/api/accept/" + item)
     .then(function(results) {
       console.log("axios results", results);
       return results;
@@ -51,7 +48,7 @@ const helpers = {
   // Update post
   reject: function(item) {
       
-    return axios.post("/reject/" + item)
+    return axios.post("/api/reject/" + item)
     .then(function(results) {
       console.log("axios results", results);
       return results;

@@ -1,13 +1,17 @@
 const router = require("express").Router();
 const choreController = require("../../controllers/choreController");
 
-router.route("/")
+router
+	.route("/chores")
 	.get(choreController.findAll)
 	.post(choreController.create);
 
 router
-	.route("/:id")
-	.put(choreController.update)
-	.delete(choreController.remove);
+	.route("/accept/:id")
+	.post(choreController.accept);
+
+router
+	.route("/reject/:id")
+	.post(choreController.reject);
 
 module.exports = router;
