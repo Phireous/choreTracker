@@ -25,24 +25,25 @@ class Main extends Component {
           <a className="navbar-brand" href="#">Chore Tracker</a>
         </div>
     
-        
+        {Auth.isUserAuthenticated() ? (
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
           <ul className="nav navbar-nav">
             <Link to="/Search"><button className="btn btn-success btn-md navbar-btn">Pick up a chore</button></Link>   
             <Link to="/Post"><button className="btn btn-danger btn-md navbar-btn">Post a chore</button></Link>
           </ul>
-          
-          {Auth.isUserAuthenticated() ? (
           <ul className="nav navbar-nav navbar-right">
               <Link to="/logout"><button type="button" className="btn btn-default navbar-btn">Logout</button></Link>
           </ul>
+          </div>
            ) : (
+          <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav navbar-right">
               <Link to="/Register"><button type="button" className="btn btn-warning navbar-btn">Sign Up</button></Link>
               <Link to="/Login"><button type="button" className="btn btn-default navbar-btn">Login</button></Link>
-          </ul>
-          )}
+          </ul>          
         </div>
+        )}
       </div>
     </nav>
 
