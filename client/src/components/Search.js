@@ -70,7 +70,7 @@ class Search extends Component {
             </div>
           </div>
         );
-      }
+      } 
     });
   }
 
@@ -94,8 +94,16 @@ class Search extends Component {
             </div>
           </div>
         );
-      }
+      } 
     });
+  }
+
+  renderNoChores = () => {
+    return (
+      <div className="col-lg-12">
+        <p>Currently no chores in progress</p>
+      </div>
+    )
   }
 
   // A helper method for rendering a container and all of our artiles inside
@@ -112,7 +120,7 @@ class Search extends Component {
                 </h1>
               </div>
               <div className="panel-body">
-                <ul className="list-group">
+                <ul className="list-group-chores">
                   {this.renderChores()}
                 </ul>
               </div>
@@ -130,8 +138,10 @@ class Search extends Component {
                 </h1>
               </div>
               <div className="panel-body">
-                <ul className="list-group">
-                  {this.renderChoresInProgress()}
+                <ul className="list-group-inProgress" id="inprogress">
+                  {
+                    this.renderChoresInProgress()
+                  }
                 </ul>
               </div>
             </div>

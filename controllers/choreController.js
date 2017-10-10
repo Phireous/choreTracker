@@ -1,10 +1,10 @@
-const db = require("../models/chores");
+const db = require("../model");
 
 module.exports = {
 
 	findAll: function(req, res) {
 		db.Chore
-		  .find(req.query)
+		  .find({})
 		  .sort({ date: -1})
 		  .then(dbModel => res.json(dbModel))
 		  .catch(err => res.status(422).json(err));
@@ -15,9 +15,19 @@ module.exports = {
 		  .then(dbModel => res.json(dbModel))
 		  .catch(err => res.status(422).json(err));
 	},
-	update: function(req, res) {
+	accept: function(req, res) {
 		db.Chore
-		  .findOneAndUpdate({ _id: req.params.id }, req.body)
+		  .findOneAndUpdate({ _id: req.params.id }, {$set: {
+				"inProgress": true
+			}})
+		  .then(dbModel => res.json(dbModel))
+		  .catch(Err => res.status(422).json(err));
+	},
+	reject: function(req, res) {
+		db.Chore
+		  .findOneAndUpdate({ _id: req.params.id }, {$set: {
+				"inProgress": false
+			}})
 		  .then(dbModel => res.json(dbModel))
 		  .catch(Err => res.status(422).json(err));
 	},
