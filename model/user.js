@@ -6,27 +6,31 @@ const mongoose = require("mongoose");
 const userSchema = new Schema({
 	username: { type: String, required: true, index: {unique: true}},
 	password: { type: String, required: true },
-	rating: [[Number]]
+	rating: [[Number]],
+    chores: [{
+            type: Schema.Types.ObjectId,
+            ref: "Chore"
+        }]
 });
 
 
-//getPrice converts back to readable format
-function getPrice(num){
-    return (num/100).toFixed(2);
-}
+// //getPrice converts back to readable format
+// function getPrice(num){
+//     return (num/100).toFixed(2);
+// }
 
-//setPrice converts it back to cents
-function setPrice(num){
-    return num*100;
-}
+// //setPrice converts it back to cents
+// function setPrice(num){
+//     return num*100;
+// }
 
-//validation using Regex
-if ( req.body.price ) {
-    req.assert('price', 'Enter a price (numbers only)').regex(/^\d+(\.\d{2})?$/);
-}
+// //validation using Regex
+// if ( req.body.price ) {
+//     req.assert('price', 'Enter a price (numbers only)').regex(/^\d+(\.\d{2})?$/);
+// }
 
 //bcrypt
-User.pre('save', function(next) {
+userSchema.pre('save', function(next) {
     var user = this;
 
     // only hash the password if it has been modified (or is new)
@@ -48,7 +52,7 @@ User.pre('save', function(next) {
 });
 
 
-UserSchema.methods.comparePassword = function(candidatePassword, cb) {
+userSchema.methods.comparePassword = function(candidatePassword, cb) {
     bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
         if (err) return cb(err);
         cb(null, isMatch);
