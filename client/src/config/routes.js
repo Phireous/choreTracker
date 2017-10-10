@@ -15,6 +15,7 @@ import Search from "../components/Search";
 import Post from "../components/Post";
 import Register from "../components/Register";
 import Login from "../components/Login";
+import Auth from "../modules/Auth";
 
 // Export the Routes
 export default (
@@ -27,6 +28,13 @@ export default (
       <Route path="Post" component={Post} />
       <Route path="Register" component={Register} />
       <Route path="Login" component={Login} />
+      <Route path="Logout"
+       render= {(nextState, replace) => {
+        Auth.deauthenticateUser();
+        replace("/")
+       }
+      }
+      />
 
       {/* If user selects any other path... we get the Home Route */}
       <IndexRoute component={Search} />
