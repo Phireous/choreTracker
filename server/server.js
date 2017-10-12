@@ -4,8 +4,11 @@ var bodyParser = require("body-parser");
 // var logger = require("morgan");
 var mongoose = require("mongoose");
 var flash = require("connect-flash");
+const passport = require('passport');
 // Require Schemas
 var routes = require("../routes");
+const localLoginStrategy = require('./passport/local-login');
+
 
 // Create Instance of Express
 var app = express();
@@ -18,6 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(flash());
+app.use(passport.initialize());
+passport.use('local-login', localLoginStrategy);
 
 // Enable CORS so that browsers don't block requests.
 app.use((req, res, next) => {

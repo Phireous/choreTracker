@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router";
 import helpers from "../utils/helpers";
+import Auth from "../modules/Auth";
 
 class Form extends Component {
 
@@ -40,10 +41,15 @@ this.state = {
       username: this.state.username,
       password: this.state.password
     })
+    .then(function(userId) {
+      Auth.authenticateUser(userId);
+      window.location.href="/";
+    })
   }
 
  render () {
    return (
+
      <div className="container">
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container-fluid">
@@ -94,6 +100,7 @@ this.state = {
         </p>
       </form>
      </div>
+
    )
  }
 }

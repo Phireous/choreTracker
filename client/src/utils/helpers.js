@@ -15,9 +15,12 @@ const helpers = {
           return response.data._id;
       });
   },
-  findUser: function(username, password) {
-    var user = { username: username, password: password };
-    return axios.get("/api/login", user)
+  findUser: function(user) {
+    return axios.post("/api/login", user)
+      .then(function(response) {
+        console.log("Logged in", response.data._id);
+        return response.data._id;
+      });
   },
   getSaved: function() {
     return axios.get("/api/chores")
