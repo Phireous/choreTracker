@@ -1,9 +1,10 @@
 // Include Server Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
-// var logger = require("morgan");
+const passport = require('passport');
 var mongoose = require("mongoose");
 var routes = require("./routes");
+const localLoginStrategy = require('./passport/local-login');
 
 // Require Schemas
 // var Article = require("./model/Chores");
@@ -18,6 +19,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(passport.initialize());
+passport.use('local-login', localLoginStrategy);
 
 // Enable CORS so that browsers don't block requests.
 // app.use((req, res, next) => {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import helpers from "../utils/helpers";
+import Auth from "../modules/Auth";
 
 class Form extends Component {
 
@@ -39,6 +40,10 @@ this.state = {
       username: this.state.username,
       password: this.state.password
     })
+    .then(function(userId) {
+      Auth.authenticateUser(userId);
+      window.location.href="/";
+    })
   }
 
  render () {
@@ -65,7 +70,7 @@ this.state = {
        </div>
        <button type="submit" 
         className="btn btn-primary"
-        onSubmit={this.handleSubmit}>
+        onClick={this.handleSubmit}>
           Login
        </button>
      </form>
