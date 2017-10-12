@@ -29,7 +29,7 @@ class Main extends Component {
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
           <ul className="nav navbar-nav">
-            <Link to="/Search"><button className="btn btn-success btn-md navbar-btn">Pick up a chore</button></Link>   
+            <Link to="/Search"><button className="btn btn-success btn-md navbar-btn">Pick up a chore</button></Link>
             <Link to="/Post"><button className="btn btn-danger btn-md navbar-btn">Post a chore</button></Link>
           </ul>
           <ul className="nav navbar-nav navbar-right">
@@ -48,10 +48,17 @@ class Main extends Component {
     </nav>
 
       <div className="row">
-
-        {/* This code will dump the correct Child Component */}
-        {this.props.children}
-
+        {Auth.isUserAuthenticated() ? (
+        
+          this.props.children
+        ) : (
+          <div className="jumbotron">
+            <h1>Welcome to Chore Tracker!</h1>
+            <p>Not looking forward to mowing the lawn? How about that car wash you have been putting off for far too long? Why not have someone else do it?</p>
+            <p>Here at Chore Tracker you can pass off that errand to someone else! Interested in making a few bucks? Pick up someone else's chore!</p>
+            <Link to="/Register"><button type="button" className="btn btn-warning navbar-btn">Sign Up</button></Link>
+          </div>
+        )}
       </div>
 
     </div>
