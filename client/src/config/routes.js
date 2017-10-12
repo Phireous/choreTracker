@@ -26,8 +26,6 @@ export default (
       {/* If user selects Search or Saved show the appropriate component */}
       <Route path="Search" component={Search} />
       <Route path="Post" component={Post} />
-      <Route path="Register" component={Register} />
-      <Route path="Login" component={Login} />
       <Route path="Logout"
        render= {(nextState, replace) => {
         Auth.deauthenticateUser();
@@ -40,5 +38,7 @@ export default (
       <IndexRoute component={Search} />
 
     </Route>
+    <Route path="Register" component = {Register} />
+    <Route path="Login" component={Login} />
   </Router>
 );
