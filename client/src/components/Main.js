@@ -4,11 +4,13 @@ import React, { Component } from 'react'
 // https://github.com/ReactTraining/react-router/blob/master/docs/API.md#link
 import { Link } from "react-router";
 import Auth from "../modules/Auth";
+import helpers from "../utils/helpers";
+
 
 // Create the Main component
 class Main extends Component {
 
-  handleSubmit = (event) => {
+  handleLogout = (event) => {
     event.preventDefault();
     Auth.deauthenticateUser();
     window.location.href="/";
@@ -39,9 +41,10 @@ class Main extends Component {
             <Link to="/Post"><button className="btn btn-danger btn-md navbar-btn">Post a chore</button></Link>
           </ul>
           <ul className="nav navbar-nav navbar-right">
+
               <button type="button" 
                className="btn btn-default navbar-btn"
-               onClick={this.handleSubmit}>
+               onClick={this.handleLogout}>
                Logout
               </button>
           </ul>
