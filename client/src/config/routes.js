@@ -26,14 +26,6 @@ export default (
       {/* If user selects Search or Saved show the appropriate component */}
       <Route path="Search" component={Search} />
       <Route path="Post" component={Post} />
-      <Route path="Logout"
-       render= {(nextState, replace) => {
-        Auth.deauthenticateUser();
-        replace("/")
-       }
-      }
-      />
-
       {/* If user selects any other path... we get the Home Route */}
       <IndexRoute component={Search} />
 

@@ -8,6 +8,12 @@ import Auth from "../modules/Auth";
 // Create the Main component
 class Main extends Component {
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    Auth.deauthenticateUser();
+    window.location.href="/";
+  }
+
   render() {
 
     return (
@@ -33,7 +39,11 @@ class Main extends Component {
             <Link to="/Post"><button className="btn btn-danger btn-md navbar-btn">Post a chore</button></Link>
           </ul>
           <ul className="nav navbar-nav navbar-right">
-              <Link to="/Logout"><button type="button" className="btn btn-default navbar-btn">Logout</button></Link>
+              <button type="button" 
+               className="btn btn-default navbar-btn"
+               onClick={this.handleSubmit}>
+               Logout
+              </button>
           </ul>
           </div>
            ) : (

@@ -93,11 +93,11 @@ this.state = {
             required 
             />
         </div>
-        <p type="submit" 
+        <button type="submit" 
           className="btn btn-primary"
-          onSubmit={this.handleSubmit}>
+          onClick={this.handleSubmit}>
             Login
-        </p>
+        </button>
       </form>
      </div>
 
