@@ -70,8 +70,10 @@ class Search extends Component {
             </div>
           </div>
         );
-      } 
-    });
+      } else {
+        return (null);
+      }
+    });  
   }
 
   renderChoresInProgress = () => {
@@ -94,6 +96,9 @@ class Search extends Component {
             </div>
           </div>
         );
+      }
+      else {
+        return (null);
       } 
     });
   }

@@ -4,12 +4,35 @@ import React, { Component } from 'react'
 // https://github.com/ReactTraining/react-router/blob/master/docs/API.md#link
 import { Link } from "react-router";
 import Auth from "../modules/Auth";
-
+import Login from "../components/Login";
 // Create the Main component
 class Main extends Component {
 
-  render() {
+  state = {
+    username: ""
+  }
 
+  handleLogout =(event) => {
+    event.preventDefault();
+    Auth.deauthenticateUser();
+    window.location.href="/";
+  }
+
+  setParent = (name) => {
+    this.setState({
+      username: name
+    })
+  }
+
+
+  getUsername = () => {
+    console.log("username" , this.state)
+    return (this.state.username);
+  }
+  
+
+  render() {
+    
     return (
       <div className="container">
       <nav className="navbar navbar-default navbar-fixed-top">
@@ -22,7 +45,7 @@ class Main extends Component {
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="#">Chore Tracker</a>
+          <Link to="/"><p className="navbar-brand">Chore Tracker</p></Link> 
         </div>
     
         {Auth.isUserAuthenticated() ? (
@@ -33,7 +56,8 @@ class Main extends Component {
             <Link to="/Post"><button className="btn btn-danger btn-md navbar-btn">Post a chore</button></Link>
           </ul>
           <ul className="nav navbar-nav navbar-right">
-              <Link to="/Logout"><button type="button" className="btn btn-default navbar-btn">Logout</button></Link>
+              <p>{this.getUsername()}</p>
+              <button type="button" className="btn btn-default navbar-btn" onClick={this.handleLogout}>Logout</button>
           </ul>
           </div>
            ) : (
@@ -52,11 +76,14 @@ class Main extends Component {
         
           this.props.children
         ) : (
-          <div className="jumbotron">
-            <h1>Welcome to Chore Tracker!</h1>
-            <p>Not looking forward to mowing the lawn? How about that car wash you have been putting off for far too long? Why not have someone else do it?</p>
-            <p>Here at Chore Tracker you can pass off that errand to someone else! Interested in making a few bucks? Pick up someone else's chore!</p>
-            <Link to="/Register"><button type="button" className="btn btn-warning navbar-btn">Sign Up</button></Link>
+          <div>
+            <div className="jumbotron">
+              <h1>Welcome to Chore Tracker!</h1>
+              <p>Not looking forward to mowing the lawn? How about that car wash you have been putting off for far too long? Why not have someone else do it?</p>
+              <p>Here at Chore Tracker you can pass off that errand to someone else! Interested in making a few bucks? Pick up someone else's chore!</p>
+              <Link to="/Register"><button type="button" className="btn btn-warning navbar-btn">Sign Up</button></Link>
+            </div>
+            <Login setParent={this.setParent.bind(this)} />
           </div>
         )}
       </div>

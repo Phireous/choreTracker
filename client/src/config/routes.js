@@ -14,7 +14,6 @@ import Main from "../components/Main";
 import Search from "../components/Search";
 import Post from "../components/Post";
 import Register from "../components/Register";
-import Login from "../components/Login";
 import Auth from "../modules/Auth";
 
 // Export the Routes
@@ -39,6 +38,5 @@ export default (
 
     </Route>
     <Route path="Register" component = {Register} />
-    <Route path="Login" component={Login} />
   </Router>
 );
