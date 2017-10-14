@@ -1,7 +1,7 @@
-import React, { Component } from "react";
 import helpers from "../utils/helpers";
+import React, { Component } from 'react'
 import Auth from "../modules/Auth";
-import { Redirect } from "react-router";
+import { Link, Redirect } from "react-router";
 
 var style = {
   backgroundColor: "white",
@@ -60,10 +60,6 @@ state = {
  render () {
    return (
 
-<<<<<<< HEAD
-     <div className="container">
-      
-=======
      <div className="container" style={ style }>
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container-fluid">
@@ -86,7 +82,6 @@ state = {
 
           </div>
         </nav>
->>>>>>> 6bbb46cc722c4f4ddf929ad671eeac4e38f6b29d
 
       <form className="Form">
         <h2>Login</h2>
