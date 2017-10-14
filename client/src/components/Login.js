@@ -3,6 +3,13 @@ import { Link } from "react-router";
 import helpers from "../utils/helpers";
 import Auth from "../modules/Auth";
 
+var style = {
+  backgroundColor: "white",
+  padding: "20px",
+  outlineColor: "black",
+  outlineStyle: "solid"
+};
+
 class Form extends Component {
 
 constructor(props) {
@@ -47,10 +54,14 @@ this.state = {
     })
   }
 
+  componentDidMount() {
+    document.body.style.backgroundImage="../images/lawn";
+  }
+
  render () {
    return (
 
-     <div className="container">
+     <div className="container" style={ style }>
         <nav className="navbar navbar-default navbar-fixed-top">
           <div className="container-fluid">
             

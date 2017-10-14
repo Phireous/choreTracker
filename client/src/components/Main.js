@@ -7,6 +7,7 @@ import Auth from "../modules/Auth";
 import helpers from "../utils/helpers";
 
 
+
 // Create the Main component
 class Main extends Component {
 
