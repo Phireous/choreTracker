@@ -49,6 +49,20 @@ class Search extends Component {
     });
   }
 
+  choreComplete = (item) => {
+    helpers.complete(item)
+    .then(() => {
+
+      // Get the revised list!
+      helpers.getSaved()
+      .then((choreData) => {
+        this.setState({ availableChores: choreData.data });
+        console.log("saved results", choreData.data);
+      });
+
+    });
+  }
+
   // A helper method for mapping through our articles and outputting some HTML
   renderChores = () => {
     return this.state.availableChores.map((chore, index) => {
@@ -90,6 +104,7 @@ class Search extends Component {
                   <p>{chore.description}</p>
                   <p>${chore.price}</p>
                   <button className="btn btn-primary" onClick={() => this.rejectChore(chore._id)}>Changed my mind</button>
+                  <button className="btn btn-primary pull-right" onClick={() => this.choreComplete(chore._id)}>Job done!</button>
                 </div>
 
               </div>

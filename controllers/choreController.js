@@ -31,6 +31,14 @@ module.exports = {
 		  .then(dbModel => res.json(dbModel))
 		  .catch(Err => res.status(422).json(err));
 	},
+	complete: function(req, res) {
+		db.Chore
+		  .findOneAndUpdate({ _id: req.params.id }, {$set: {
+				"completed": true
+			}})
+		  .then(dbModel => res.json(dbModel))
+		  .catch(Err => res.status(422).json(err));
+	},
 	remove: function(req, res) {
 		db.Chore
 		  .findbyId({ _id: req.params.id })

@@ -57,6 +57,15 @@ const helpers = {
       return results;
     })
   },
+
+  complete: function(item) {
+    
+    return axios.post("/api/complete/" + item)
+    .then(function(results) {
+      console.log("axios results", results);
+      return results;
+    })
+  },
   // This will remove saved articles from our database
   deleteSaved: function(title, data, url) {
     return axios.delete("/api/saved", {

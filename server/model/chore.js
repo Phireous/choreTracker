@@ -8,7 +8,7 @@ const choreSchema = new Schema({
 	date: { type: Date, default: Date.now },
 	completed: { type: Boolean, default: false },
 	inProgress: { type: Boolean, default: false },
-	username: { type: String, required: true}
+	username: { type: String}
 });
 
 const Chore = mongoose.model("Chore", choreSchema);

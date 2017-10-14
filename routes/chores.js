@@ -14,4 +14,8 @@ router
 	.route("/reject/:id")
 	.post(choreController.reject);
 
+router
+	.route("/complete/:id")
+	.post(choreController.complete);
+
 module.exports = router;
