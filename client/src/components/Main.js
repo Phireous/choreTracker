@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 // https://github.com/ReactTraining/react-router/blob/master/docs/API.md#link
 import { Link } from "react-router";
 import Auth from "../modules/Auth";
-import helpers from "../utils/helpers";
 import Login from "./Login";
 
 
