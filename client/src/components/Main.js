@@ -6,8 +6,6 @@ import { Link } from "react-router";
 import Auth from "../modules/Auth";
 import helpers from "../utils/helpers";
 
-
-
 // Create the Main component
 class Main extends Component {
 
@@ -20,6 +18,7 @@ class Main extends Component {
   render() {
 
     return (
+
       <div className="container">
       <nav className="navbar navbar-default navbar-fixed-top">
       <div className="container-fluid">
@@ -74,8 +73,8 @@ class Main extends Component {
           </div>
         )}
       </div>
+      </div>
 
-    </div>
     );
   }
 };
