@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import { Link } from "react-router";
 import Auth from "../modules/Auth";
 import Login from "../components/Login";
+import Search from "../components/Search";
 // Create the Main component
 class Main extends Component {
 
@@ -26,7 +27,6 @@ class Main extends Component {
 
 
   getUsername = () => {
-    console.log("username" , this.state)
     return (this.state.username);
   }
   
@@ -56,7 +56,7 @@ class Main extends Component {
             <Link to="/Post"><button className="btn btn-danger btn-md navbar-btn">Post a chore</button></Link>
           </ul>
           <ul className="nav navbar-nav navbar-right">
-              <p>{this.getUsername()}</p>
+              <p className="navbar-text">Signed in as {this.getUsername()}</p>
               <button type="button" className="btn btn-default navbar-btn" onClick={this.handleLogout}>Logout</button>
           </ul>
           </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import helpers from "../utils/helpers";
 import Auth from "../modules/Auth";
-import { Link } from "react-router";
+import { Redirect } from "react-router";
 
 class Form extends Component {
 
@@ -42,7 +42,7 @@ state = {
     })
     .then(function(userId) {
       Auth.authenticateUser(userId);
-      // window.location.href="/";
+      return(<Redirect to="/"/>);
     })
   }
 
@@ -72,12 +72,11 @@ state = {
             required 
             />
         </div>
-        <Link to="/"><p type="submit" 
+        <p type="submit" 
           className="btn btn-primary"
           onClick={this.handleSubmit}>
             Login
         </p>
-        </Link>
       </form>
      </div>
 

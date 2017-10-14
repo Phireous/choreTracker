@@ -20,6 +20,7 @@ module.exports = new PassportLocalStrategy({
     if (!user) {
       const error = new Error('Incorrect username or password');
       error.name = 'IncorrectCredentialsError';
+      
 
       return done(error);
     }

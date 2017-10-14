@@ -23,9 +23,9 @@ handleSubmit = (event) => {
     username: this.state.username,
     password: this.state.password
   }).then((resp) => {
-
     console.log(this.state);
     console.log("Account Saved");
+    window.location.href="/";
     
   })
 
