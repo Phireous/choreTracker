@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import { Link } from "react-router";
 import helpers from "../utils/helpers";
 
+var style = {
+  backgroundColor: "white",
+  padding: "20px",
+  outlineColor: "black",
+  outlineStyle: "solid"
+};
+
 class Form extends Component {
 
 state = {
@@ -33,7 +40,7 @@ handleSubmit = (event) => {
 
  render () {
    return (
-     <div className="container">
+     <div className="container" style={ style }>
        <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container-fluid">
           

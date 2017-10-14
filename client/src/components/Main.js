@@ -4,8 +4,15 @@ import React, { Component } from 'react'
 // https://github.com/ReactTraining/react-router/blob/master/docs/API.md#link
 import { Link } from "react-router";
 import Auth from "../modules/Auth";
+<<<<<<< HEAD
 import Login from "../components/Login";
 import Search from "../components/Search";
+=======
+import helpers from "../utils/helpers";
+
+
+
+>>>>>>> 6bbb46cc722c4f4ddf929ad671eeac4e38f6b29d
 // Create the Main component
 class Main extends Component {
 
